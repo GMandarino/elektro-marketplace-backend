@@ -1,0 +1,24 @@
+# Arquivos de dependência e build
+node_modules
+dist
+build
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de ambiente - MUITO IMPORTANTE
+.env
+.env.*
+
+# Chaves de segurança - MUITO IMPORTANTE
+keys/
+
+# Arquivos do Prisma e banco de dados local
+/prisma/dev.db
+/prisma/dev.db-journal
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db

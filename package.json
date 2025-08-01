@@ -1,0 +1,47 @@
+{
+  "name": "back-end-elektroMarketplace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node-dev --transpile-only --no-notify server.ts",
+    "dev": "ts-node-dev server.ts",
+    "migrate": "npx prisma migrate dev --name init",
+    "keys": "npx ts-node src/config/generateRSAKeyPair.ts"
+  },
+  "prisma": {
+    "schema": "src/models/schema.prisma",
+    "seed": "ts-node src/models/seed/seeder.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@prisma/client": "^6.12.0",
+    "@types/cors": "^2.8.19",
+    "@types/crypto-js": "^4.2.2",
+    "@types/express": "^5.0.3",
+    "@types/multer": "^2.0.0",
+    "@types/nodemailer": "^6.4.17",
+    "@types/passport-jwt": "^4.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "faker": "^5.5.3",
+    "prisma": "^6.12.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.5",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "react-router-dom": "^7.7.1",
+    "zod": "^4.0.11"
+  }
+}

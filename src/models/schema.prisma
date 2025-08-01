@@ -1,0 +1,41 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Cadastro do Usuário do Marketplace Elektro
+model user {
+  userId        Int           @id @unique   @default(autoincrement())
+  userName      String?
+  cpf           String        @unique       @db.VarChar(70)
+  email         String        @unique       @db.VarChar(70)
+  telefone      String                      @db.Char(11)
+  pasword       String
+  hash          String
+  salt          String
+  rating        Decimal                     @db.Decimal(3,2) @default(0)
+
+  // Relação: Um usuário pode ter vários produtos
+  products   Product[]
+  
+}
+// Cadastro do Produto do Marketplace Elektro
+model Product {
+  productId     Int           @id        @default(autoincrement())
+  productName   String
+  price         Decimal                  @db.Decimal(10,2)
+  amount        Int
+  description   String
+  image         String
+
+
+   // Relação: Um produto pertence a um usuário
+  userId      Int
+  userName    user    @relation(fields: [userId], references: [userId], onDelete: Cascade)
+}
